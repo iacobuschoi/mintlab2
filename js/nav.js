@@ -133,25 +133,23 @@ topBarOption.addEventListener('click',()=>{
     }
 })
 
-if (isMobile) {
-  document.querySelectorAll('.top-bar-side .dropdown > a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault(); // 링크 이동 막기
-      e.stopPropagation(); // 이벤트 버블링 막기
 
-      const dropdown = this.parentElement;
+if (window.innerWidth <= 768) {
+  document.querySelectorAll('.top-bar-side .dropdown-title').forEach(trigger => {
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const dropdown = this.closest('.dropdown');
 
       // 다른 드롭다운 닫기
       document.querySelectorAll('.top-bar-side .dropdown').forEach(d => {
         if (d !== dropdown) d.classList.remove('active');
       });
 
-      // 현재 드롭다운 토글
       dropdown.classList.toggle('active');
     });
   });
 
-  // 드롭다운 외부 클릭 시 닫기
+  // 외부 클릭 시 드롭다운 닫기
   document.addEventListener('click', function () {
     document.querySelectorAll('.top-bar-side .dropdown').forEach(d => d.classList.remove('active'));
   });
