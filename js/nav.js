@@ -133,24 +133,3 @@ topBarOption.addEventListener('click',()=>{
     }
 })
 
-
-if (window.innerWidth <= 768) {
-  document.querySelectorAll('.top-bar-side .dropdown-title').forEach(trigger => {
-    trigger.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const dropdown = this.closest('.dropdown');
-
-      // 다른 드롭다운 닫기
-      document.querySelectorAll('.top-bar-side .dropdown').forEach(d => {
-        if (d !== dropdown) d.classList.remove('active');
-      });
-
-      dropdown.classList.toggle('active');
-    });
-  });
-
-  // 외부 클릭 시 드롭다운 닫기
-  document.addEventListener('click', function () {
-    document.querySelectorAll('.top-bar-side .dropdown').forEach(d => d.classList.remove('active'));
-  });
-}
