@@ -131,5 +131,11 @@ topBarOption.addEventListener('click',()=>{
     else{
         handleTopBarSide(SHOWN_CLASSNAME, HIDDEN_CLASSNAME);
     }
+    const clickedInsideSidebar = topBarSide.contains(e.target);
+    const clickedToggleButton = topBarOption.contains(e.target);
+
+    if (!clickedInsideSidebar && !clickedToggleButton && topBarSideOn) {
+        handleTopBarSide(HIDDEN_CLASSNAME, SHOWN_CLASSNAME);
+    }
 })
 
