@@ -133,51 +133,25 @@ topBarOption.addEventListener('click',()=>{
     }
 })
 
-// 모바일일 때만 .dropdown 클릭 시 .dropdown-content 열기
 if (isMobile) {
-    document.querySelectorAll('.top-bar-side .dropdown').forEach(dropdown => {
-        dropdown.addEventListener('click', function (e) {
-            e.stopPropagation();
+  document.querySelectorAll('.top-bar-side .dropdown > a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault(); // 링크 이동 막기
+      e.stopPropagation(); // 이벤트 버블링 막기
 
-            // 다른 드롭다운들 닫기
-            document.querySelectorAll('.top-bar-side .dropdown').forEach(d => {
-                if (d !== this) d.classList.remove('active');
-            });
+      const dropdown = this.parentElement;
 
-            // 현재 드롭다운 토글
-            this.classList.toggle('active');
-        });
-    });
-
-    // 바깥 클릭 시 드롭다운 닫기
-    document.addEventListener('click', function () {
-        document.querySelectorAll('.top-bar-side .dropdown').forEach(d => d.classList.remove('active'));
-    });
-}
-
-if (isMobile) {
-  document.querySelectorAll('.top-bar-side .dropdown').forEach(dropdown => {
-    dropdown.addEventListener('click', function (e) {
-      // 링크 이동 방지
-      e.preventDefault();
-      e.stopPropagation();
-
-      // 클릭한 요소가 <a> 태그면 무시 (드롭다운 내부 링크는 정상 작동해야 하므로)
-      if (e.target.tagName.toLowerCase() === 'a' && !e.target.classList.contains('dropdown-toggle')) {
-        return;
-      }
-
-      // 다른 드롭다운들 닫기
+      // 다른 드롭다운 닫기
       document.querySelectorAll('.top-bar-side .dropdown').forEach(d => {
-        if (d !== this) d.classList.remove('active');
+        if (d !== dropdown) d.classList.remove('active');
       });
 
       // 현재 드롭다운 토글
-      this.classList.toggle('active');
+      dropdown.classList.toggle('active');
     });
   });
 
-  // 바깥 누르면 모두 닫기
+  // 드롭다운 외부 클릭 시 닫기
   document.addEventListener('click', function () {
     document.querySelectorAll('.top-bar-side .dropdown').forEach(d => d.classList.remove('active'));
   });
