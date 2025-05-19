@@ -131,11 +131,17 @@ topBarOption.addEventListener('click',()=>{
     else{
         handleTopBarSide(SHOWN_CLASSNAME, HIDDEN_CLASSNAME);
     }
+})
+
+document.addEventListener('click', (e) => {
+    if (!isMobile) return;
+
     const clickedInsideSidebar = topBarSide.contains(e.target);
     const clickedToggleButton = topBarOption.contains(e.target);
 
     if (!clickedInsideSidebar && !clickedToggleButton && topBarSideOn) {
         handleTopBarSide(HIDDEN_CLASSNAME, SHOWN_CLASSNAME);
     }
-})
+});
+
 
