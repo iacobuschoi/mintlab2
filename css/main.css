@@ -240,7 +240,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 10%;
+    padding-bottom: 20%;
 }
 
 .footer {
@@ -695,7 +695,7 @@ details[open] > summary ~ * {
         font-size: 1.5rem;
     }
     .research-container{
-        padding: 0 2% 0 2%;
+        padding: 0 10% 0 10%;
     }
     .card-container-title{
         margin: 50px 0 10px;
