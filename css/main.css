@@ -111,7 +111,7 @@ body {
     justify-content:space-around;
     margin-top: 50px;
     padding: 0 20% 0 20%;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 .research-page-map span {
     color: #7bc685;
@@ -233,13 +233,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;
+    padding-bottom: 10%;
 }
 .home-container-research{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10%;
 }
 
 .footer {
@@ -275,50 +276,37 @@ body {
     }
 }
 
-.card-container-title{
-    margin-top:70px;
-}
-
-.card-container{
-    --heightRatio:1;
-    height:calc(var(--height)*var(--heightRatio));
-    background-color:whitesmoke;
-    filter: none;
-    display:flex;
-}
-
 .card-section{
-    width:100%;
-    height: 100%;
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between
+    align-items:stretch;
+    justify-content: space-around;
+    flex-direction: row;
+    display: flex;
+    height:fit-content;
+    width:60%;  
 }
 
 .card{
-    height:80%;
-    width: 50%;
+    height:auto;
+    width: 45%;
+    padding: 5% 3% 5% 3%;
     background-color: rgb(253, 253, 253);
     filter: drop-shadow(0 0 5px rgb(211, 211, 211));
-    /* padding: 2%; */
-    border-radius: 2%;
+    border-radius: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    float:left;
+    /* justify-content: space-around; */
+    gap:5%;
 }
 
 .card img{
     /* border-radius: 2%; */
-    width:40%;
-    height: 30%;
+    width:60%;
+    height: 35%;
+    object-fit: contain;
 }
 .card img:hover{
     cursor: pointer;
-}
-.card img img{
-    width:100%;
-    height:100%;
 }
 .description{
     padding: 3%;
@@ -394,31 +382,8 @@ details[open] > summary ~ * {
 }
 
 @media all and (min-width:480px) and (max-width:768px) {
-    .card-container{
-        --heightRatio: 1.2;
-        flex-direction: column;
-    }
-    .card-section{
-        flex-direction: row;
-        width:auto;
-    }
     .home-map-upper{
         width: 80%;
-    }
-    .card{
-        flex-direction: column;
-        font-size: 1em;
-        width:50%;
-        height: 100%;
-    }
-    .card img{
-        width: 50%;
-        height: 50%;
-    }
-    .description{
-        font-size: xx-small;
-        width:100%;
-        height:50%;
     }
     .research-detail-des{
         font-size:medium;
@@ -430,37 +395,22 @@ details[open] > summary ~ * {
     .research-page-map{
         padding:0 10% 0 10%;;
     }
+    .card-section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 90%;
+        margin-bottom:10%;
+        padding-bottom:10%;
+    }
 } 
   
 
 @media all and (max-width:480px) {
-    .card-container{
-        --heightRatio: 4;
-    }
-    .card-container-title{
-        margin-top: 25px;
-        margin-bottom: 0;
-    }
-    .card-section{
-        flex-direction: row;
-        width:auto;
-        height: 100%;
-        flex-direction: column;
-    }
     .home-map-upper{
         height: 80%;
-        width: 100%;
-    }
-    .card{
-        flex-direction:column;
-        font-size: small;
-        font-size: 1em;
-        width:50%;
-        height:100%;
-    }
-    .card img{
-        width: 100%;
-        height: 50%;
+        width: 80%;
     }
     .description{
         font-size: small;
@@ -478,6 +428,15 @@ details[open] > summary ~ * {
     }
     .research-page-map{
         padding:0 10% 0 10%;;
+    }
+    .card-section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 90%;
+        margin-bottom:10%;
+        padding-bottom:10%;
     }
 }
 
@@ -569,9 +528,6 @@ details[open] > summary ~ * {
         --width: 900px;
         --height: 495px
     }
-    .home-container{
-        height: 800px;
-    }
     .home-title{
         width: 900px;
     }
@@ -594,9 +550,6 @@ details[open] > summary ~ * {
     .home-map-container{
         --width: 700px;
         --height: 385px
-    }
-    .home-container{
-        height: 750px;
     }
     .home-title{
         width: 700px;
@@ -633,9 +586,6 @@ details[open] > summary ~ * {
     .home-title{
         width: 400px;
         font-size: 2rem;
-    }
-    .home-container{
-        height: 500px;
     }
     .research-container{
         padding: 0 30px 30px 30px;
@@ -743,12 +693,6 @@ details[open] > summary ~ * {
     .home-title{
         width: 400px;
         font-size: 2rem;
-    }
-    .home-container{
-        height: 500px;
-    }
-    .home-container{
-        height: 470px;
     }
     .research-container{
         padding: 0 2% 0 2%;
