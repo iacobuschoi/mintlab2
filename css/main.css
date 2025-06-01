@@ -692,7 +692,7 @@ details[open] > summary ~ * {
     }
     .home-title{
         width: 400px;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .research-container{
         padding: 0 2% 0 2%;
